@@ -8,6 +8,9 @@ import java.util.List;
  */
 public class DNASearchDemo {
     static final SequenceScoringAlgorithm EXAMPLE_ALGORITHM = new ExamplePositionMatchAlgorithm();
+    static final SequenceScoringAlgorithm LEVENSHTEIN = new Levenshtein();
+    
+    
     /**
      * Runs the example program.
      *
@@ -23,6 +26,7 @@ public class DNASearchDemo {
 
         List<SequenceScoringAlgorithm> algorithms = new ArrayList<>();
         algorithms.add(EXAMPLE_ALGORITHM);
+        algorithms.add(LEVENSHTEIN);
 
         AlgorithmComparisonManager manager = new AlgorithmComparisonManager(algorithms);
         List<MatchResult> results = manager.compareAll(query, database);
