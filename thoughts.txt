@@ -1,0 +1,35 @@
+A. Comparing similarity scores
+
+Different sequence scoring algorithms may return values that are not directly comparable. 
+For example, the ExamplePositionMatchAlgorithm returns a larger score when sequences are more similar, 
+while the Levenshtein Edit Distance returns a smaller score for better matches. Because of this, 
+we cannot compare scores from different algorithms without interpreting them first. The meaning 
+of the score depends on the algorithm, so we must use the higherScoreIsBetter() method to decide 
+how to evaluate results.
+
+It is important to know whether different algorithms select the same best-match sequence, because 
+this tells us if the algorithms agree on which DNA sequence is most similar to the query. It may 
+also be useful to compare the ranking order of all sequences in the database, since two algorithms 
+may choose the same best match but rank the rest differently.
+
+To implement this in the project, we could store all scores for each algorithm and print the full 
+ranking of sequences. We could also normalize scores so that they fall within the same range, 
+making them easier to compare across algorithms.
+
+
+B. Measuring performance
+
+To compare performance, we need to measure how efficiently each algorithm runs. A run-time timer 
+is a good way to do this, because it shows how long each algorithm takes to process the same query 
+and database. We can use System.nanoTime() before and after running the algorithm to measure the 
+execution time. This allows us to compare which algorithm is faster.
+
+However, run-time alone is not enough. We should also consider asymptotic performance, which 
+describes how the running time grows as the input size increases. For example, the recursive 
+Levenshtein algorithm is much slower than a simple position match algorithm when the sequence 
+length becomes large. To test this, we could run the algorithms on longer DNA sequences and on 
+larger databases, then record how the time changes.
+
+In this project, we could implement performance testing by adding timing code in the 
+SequenceMatcher class and printing the runtime for each algorithm. We could also run the 
+comparison multiple times with different database sizes to observe how performance scales.
