@@ -27,6 +27,20 @@ There are really two different comparisons we want to think about:
 - How efficiently the algorithm runs
 
 ---
+# Changes 16 March 2026
+Added file:
+- DNASearchComparison.java
+Instructions for building/testing using junit17.jar
+To compile::
+javac -cp junit17.jar:. *.java
+
+To run the unit tests::
+java -jar junit17.jar --class-path . --select-class SequenceMatcherTest
+
+To produce API documentation::
+javadoc -cp junit17.jar:. -d docs *.java
+
+---
 Copyright (C) 2026 Dr. Jody Paul
 
 This program is free software: you can redistribute it and/or modify
